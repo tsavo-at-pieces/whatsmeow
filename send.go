@@ -930,6 +930,8 @@ func getTypeFromMessage(msg *waE2E.Message) string {
 		return "reaction"
 	case msg.PollCreationMessage != nil, msg.PollUpdateMessage != nil:
 		return "poll"
+	case msg.EventMessage != nil:
+		return "event"
 	case getMediaTypeFromMessage(msg) != "":
 		return "media"
 	case msg.Conversation != nil, msg.ExtendedTextMessage != nil, msg.ProtocolMessage != nil:
